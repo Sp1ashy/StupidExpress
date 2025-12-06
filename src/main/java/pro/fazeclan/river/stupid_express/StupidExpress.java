@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 import pro.fazeclan.river.stupid_express.amnesiac.RoleSelectionHandler;
 import pro.fazeclan.river.stupid_express.arsonist.ArsonistItemGivingHandler;
 import pro.fazeclan.river.stupid_express.arsonist.OilDousingHandler;
+import pro.fazeclan.river.stupid_express.ritualist.RitualistRole;
 
 import java.util.HashMap;
 
@@ -53,6 +54,18 @@ public class StupidExpress implements ModInitializer {
             true
     ));
 
+    public static ResourceLocation RITUALIST_ID = id("ritualist");
+
+    public static Role RITUALIST = registerRole(new Role(
+            RITUALIST_ID,
+            0x9baae8,
+            true,
+            false,
+            Role.MoodType.REAL,
+            TMMRoles.CIVILIAN.getMaxSprintTime(),
+            false
+    ));
+
     @Override
     public void onInitialize() {
 
@@ -62,6 +75,8 @@ public class StupidExpress implements ModInitializer {
         Harpymodloader.setRoleMaximum(ARSONIST, 1);
         OilDousingHandler.init();
         ArsonistItemGivingHandler.init();
+
+        Harpymodloader.setRoleMaximum(RITUALIST, 1);
 
         // mod stuff
         ModItems.init();

@@ -12,5 +12,9 @@
   "item.stupid_express.jerry_can": "Jerry Can",
   "item.stupid_express.lighter": "Lighter",
   "death_reason.stupid_express.failed_ignite": "ignition misfire.",
-  "death_reason.stupid_express.ignited": "being lit ablaze."
+  "death_reason.stupid_express.ignited": "being lit ablaze.",
+
+  "announcement.role.ritualist": "Ritualist!",
+  "announcement.goals.ritualist": "Absorb 2 corpses to revive on death. Sacrifice yourself to figure out the killer!",
+  "announcement.win.ritualist": "The Ritualist Wins!"
 }
