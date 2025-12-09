@@ -62,7 +62,7 @@ public class RevivalSelectionHandler {
             if (cooldown.hasCooldown()) {
                 return InteractionResult.PASS;
             }
-            cooldown.setCooldown(60 * 20);
+            cooldown.setCooldown(3 * 60 * 20);
 
             // revive player and give them the role
             var selectedRole = roles.getFirst();
