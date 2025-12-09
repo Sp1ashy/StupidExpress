@@ -7,6 +7,7 @@ import dev.doctor4t.trainmurdermystery.client.gui.RoleAnnouncementTexts;
 import dev.doctor4t.trainmurdermystery.util.AnnounceWelcomePayload;
 import lombok.Getter;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -76,7 +77,13 @@ public class StupidExpress implements ModInitializer {
         OilDousingHandler.init();
         ArsonistItemGivingHandler.init();
 
-        Harpymodloader.setRoleMaximum(NECROMANCER, 1);
+        ServerTickEvents.END_SERVER_TICK.register(server -> {
+            if (server.getPlayerCount() > 11) {
+                Harpymodloader.setRoleMaximum(NECROMANCER, 1);
+            } else {
+                Harpymodloader.setRoleMaximum(NECROMANCER, 0);
+            }
+        });
         RevivalSelectionHandler.init();
 
         // mod stuff

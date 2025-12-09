@@ -8,7 +8,8 @@
     "neutral.NeutralRoleAnnouncementMixin",
     "neutral.NeutralRoleTextRendering",
     "amnesiac.AmnesiacHudMixin",
-    "necromancer.NecromancerHudMixin"
+    "necromancer.NecromancerHudMixin",
+    "necromancer.NecromancerNoShopMixin"
   ],
   "injectors": {
     "defaultRequire": 1
