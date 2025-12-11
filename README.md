@@ -10,7 +10,7 @@
 - **Necromancer**: A killer role that spawns when there can be two killers. When a killer is dead (not the necromancer), they have the opportunity to bring someone back from the dead to work for them.
 
 #### Modifiers
-- **Lovers**: Another pair that are life-linked, they may be a Civilian-Civilian or Killer-Civilian pair. Their goal is to be the last two standing, but they can win alongside the Civilians if they are both Civilians.
+- **Lovers**: A pair that are life-linked, they may be a Civilian-Civilian or Killer-Civilian pair. Their goal is to be the last two standing, but they can win alongside the Civilians if they are both Civilians.
 
 yea that's it
 
