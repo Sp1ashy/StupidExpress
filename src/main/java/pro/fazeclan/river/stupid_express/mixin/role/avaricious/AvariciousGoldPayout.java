@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import dev.doctor4t.trainmurdermystery.cca.GameTimeComponent;
 import dev.doctor4t.trainmurdermystery.cca.GameWorldComponent;
 import dev.doctor4t.trainmurdermystery.cca.PlayerShopComponent;
+import dev.doctor4t.trainmurdermystery.game.GameFunctions;
 import dev.doctor4t.trainmurdermystery.game.MurderGameMode;
 import dev.doctor4t.trainmurdermystery.index.TMMSounds;
 import net.minecraft.network.chat.Component;
@@ -26,21 +27,25 @@ public class AvariciousGoldPayout {
             method = "tickServerGameLoop",
             at = @At("TAIL")
     )
-    private void payout(
+    private void avaricious$payout(
             ServerLevel serverWorld,
             GameWorldComponent gameWorldComponent,
-            CallbackInfo ci,
-            @Local(name = "player") ServerPlayer player
-    )
-    {
-        if (gameWorldComponent.isRole(player, SERoles.AVARICIOUS)) {
+            CallbackInfo ci
+    ) {
+        GameTimeComponent timeComponent = GameTimeComponent.KEY.get(serverWorld);
+        long time = timeComponent.time;
+
+        if (AvariciousGoldHandler.gameStartTime == -1) {
+            AvariciousGoldHandler.gameStartTime = time;
+            return;
+        }
 
         long elapsed = time - AvariciousGoldHandler.gameStartTime;
 
         if (elapsed % AvariciousGoldHandler.TIMER_TICKS != 0) return;
 
         for (ServerPlayer player : serverWorld.players()) {
-            if (!gameWorldComponent.isRole(player, StupidExpress.AVARICIOUS)) continue;
+            if (!gameWorldComponent.isRole(player, SERoles.AVARICIOUS)) continue;
 
             int nearbyPlayers = 0;
             for (ServerPlayer other : serverWorld.players()) {

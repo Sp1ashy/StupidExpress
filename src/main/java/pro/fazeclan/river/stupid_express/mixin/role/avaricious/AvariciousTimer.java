@@ -19,6 +19,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+import pro.fazeclan.river.stupid_express.SERoles;
 import pro.fazeclan.river.stupid_express.StupidExpress;
 import pro.fazeclan.river.stupid_express.role.avaricious.AvariciousGoldHandler;
 
@@ -52,7 +53,7 @@ public class AvariciousTimer {
 
         for (ServerPlayer player : serverWorld.players()) {
 
-            if (!gameWorldComponent.isRole(player, StupidExpress.AVARICIOUS)) continue;
+            if (!gameWorldComponent.isRole(player, SERoles.AVARICIOUS)) continue;
 
             String text = "§6§lPayout in: " + (60 - (ticksRemaining / 20)) + "s";
             player.sendSystemMessage(
