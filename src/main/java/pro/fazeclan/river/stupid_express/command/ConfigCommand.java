@@ -13,6 +13,7 @@ public class ConfigCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(
                 Commands.literal("stupid_express:config")
+                        .requires(ctx -> ctx.hasPermission(2))
                         .then(Commands.literal("necromancer_has_shop")
                                 .then(Commands.argument("value", BoolArgumentType.bool())
                                         .executes(ConfigCommand::necromancerHasShopExecute)
