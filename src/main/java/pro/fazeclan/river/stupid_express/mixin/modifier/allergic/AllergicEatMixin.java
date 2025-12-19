@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import pro.fazeclan.river.stupid_express.ModItems;
+import pro.fazeclan.river.stupid_express.SEItems;
 import pro.fazeclan.river.stupid_express.StupidExpress;
 import pro.fazeclan.river.stupid_express.modifier.allergic.cca.AllergicComponent;
 
@@ -41,12 +41,12 @@ public abstract class AllergicEatMixin extends LivingEntity {
         Player player = (Player) (Object) this;
         AllergicComponent allergy = AllergicComponent.KEY.get(player);
 
-        StupidExpress.LOGGER.info(String.valueOf(Objects.equals(allergy.getAllergyType(), "food") && stack.is(ModItems.DRINKS)));
-        StupidExpress.LOGGER.info(String.valueOf(Objects.equals(allergy.getAllergyType(), "drink") && !stack.is(ModItems.DRINKS)));
+        StupidExpress.LOGGER.info(String.valueOf(Objects.equals(allergy.getAllergyType(), "food") && stack.is(SEItems.DRINKS)));
+        StupidExpress.LOGGER.info(String.valueOf(Objects.equals(allergy.getAllergyType(), "drink") && !stack.is(SEItems.DRINKS)));
 
         if (!allergy.isAllergic()) return;
-        if (Objects.equals(allergy.getAllergyType(), "food") && stack.is(ModItems.DRINKS)) return;
-        if (Objects.equals(allergy.getAllergyType(), "drink") && !stack.is(ModItems.DRINKS)) return;
+        if (Objects.equals(allergy.getAllergyType(), "food") && stack.is(SEItems.DRINKS)) return;
+        if (Objects.equals(allergy.getAllergyType(), "drink") && !stack.is(SEItems.DRINKS)) return;
 
         int random = ThreadLocalRandom.current().nextInt(0, 6);
         if (random == 0) {

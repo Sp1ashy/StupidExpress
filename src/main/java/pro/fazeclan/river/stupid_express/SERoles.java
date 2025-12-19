@@ -2,9 +2,14 @@ package pro.fazeclan.river.stupid_express;
 
 import dev.doctor4t.trainmurdermystery.api.Role;
 import dev.doctor4t.trainmurdermystery.api.TMMRoles;
+import dev.doctor4t.trainmurdermystery.cca.PlayerPoisonComponent;
+import dev.doctor4t.trainmurdermystery.event.AllowPlayerDeath;
+import dev.doctor4t.trainmurdermystery.index.TMMSounds;
 import lombok.Getter;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.minecraft.sounds.SoundSource;
 import org.agmas.harpymodloader.Harpymodloader;
+import pro.fazeclan.river.stupid_express.modifier.allergic.cca.AllergicComponent;
 import pro.fazeclan.river.stupid_express.role.amnesiac.RoleSelectionHandler;
 import pro.fazeclan.river.stupid_express.role.arsonist.ArsonistItemGivingHandler;
 import pro.fazeclan.river.stupid_express.role.arsonist.OilDousingHandler;
@@ -69,6 +74,16 @@ public class SERoles {
             true
     ));
 
+    public static Role ALLERGIC = registerRole(new Role(
+            StupidExpress.id("allergic"),
+            0x70ffa2,
+            false,
+            false,
+            Role.MoodType.REAL,
+            -1,
+            true
+    ));
+
     public static void init() {
         /// AMNESIAC
 
@@ -102,6 +117,26 @@ public class SERoles {
         /// LOVERS
 
         Harpymodloader.setRoleMaximum(LOVERS, 0); // fake role for things
+
+        /// ALLERGIC
+
+        Harpymodloader.setRoleMaximum(ALLERGIC, 0); // fake role 2, courtesy of you!
+
+        AllowPlayerDeath.EVENT.register((player, identifier) -> {
+            AllergicComponent allergy = AllergicComponent.KEY.get(player);
+            PlayerPoisonComponent poison = PlayerPoisonComponent.KEY.get(player);
+            if (allergy.isAllergic()) {
+                if (poison.poisoner != player.getUUID()) {
+                    if (allergy.armor > 0) {
+                        player.level().playSound(player, player.getOnPos().above(1), TMMSounds.ITEM_PSYCHO_ARMOUR, SoundSource.MASTER, 5.0F, 1.0F);
+                        poison.setPoisonTicks(-1, player.getUUID());
+                        allergy.armor--;
+                        return false;
+                    }
+                }
+            }
+            return true;
+        });
     }
 
     public static Role registerRole(Role role) {

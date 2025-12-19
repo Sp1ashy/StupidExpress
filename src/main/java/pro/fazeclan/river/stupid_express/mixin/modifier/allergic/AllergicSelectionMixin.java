@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import pro.fazeclan.river.stupid_express.StupidExpress;
+import pro.fazeclan.river.stupid_express.SERoles;
 import pro.fazeclan.river.stupid_express.modifier.allergic.cca.AllergicComponent;
 import pro.fazeclan.river.stupid_express.modifier.lovers.cca.LoversComponent;
 
@@ -26,10 +26,10 @@ public class AllergicSelectionMixin {
     )
     private void assignAllergic(ServerLevel serverWorld, GameWorldComponent gameWorldComponent, List<ServerPlayer> players, CallbackInfo ci) {
 
-        if (HarpyModLoaderConfig.HANDLER.instance().disabled.contains(StupidExpress.ALLERGIC.identifier().getPath())) {
+        if (HarpyModLoaderConfig.HANDLER.instance().disabled.contains(SERoles.ALLERGIC.identifier().getPath())) {
             return;
         }
-        if (HarpyModLoaderConfig.HANDLER.instance().disabled.contains(StupidExpress.ALLERGIC.identifier().toString())) {
+        if (HarpyModLoaderConfig.HANDLER.instance().disabled.contains(SERoles.ALLERGIC.identifier().toString())) {
             return;
         }
         if (ThreadLocalRandom.current().nextInt(0, 3) != 0) {
@@ -56,7 +56,7 @@ public class AllergicSelectionMixin {
                 Component.translatable(
                         "hud.allergic.notification",
                         allergicComponent.getAllergyType()
-                ).withColor(StupidExpress.ALLERGIC_COLOR),
+                ).withColor(SERoles.ALLERGIC.color()),
                 true
         );
         for (ServerPlayer player : players) {
@@ -65,7 +65,7 @@ public class AllergicSelectionMixin {
                     player.sendSystemMessage(
                             Component.translatable(
                                     "hud.allergic.doctor_heads_up" // This sends to players with a role from a different mod. I'm fucking genius.
-                            ).withColor(StupidExpress.ALLERGIC_COLOR), // (Kid named genius:)
+                            ).withColor(SERoles.ALLERGIC.color()), // (Kid named genius:)
                             true
                     );
                 }
