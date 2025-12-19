@@ -10,6 +10,8 @@
     "role.arsonist.ArsonistRemoveDousedMixin",
     "role.avaricious.AvariciousGoldPayout",
     "role.avaricious.AvariciousPassiveIncomeDestroyer",
+    "role.avaricious.AvariciousTestActionbar",
+    "role.avaricious.AvariciousTimer",
     "role.necromancer.NecromancerStatsMixin",
     "role.neutral.NeutralGameFunctionsMixin",
     "role.neutral.NeutralRoundEndMixin"
