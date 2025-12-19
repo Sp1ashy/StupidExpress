@@ -3,6 +3,7 @@ package pro.fazeclan.river.stupid_express;
 import dev.doctor4t.trainmurdermystery.api.Role;
 import dev.doctor4t.trainmurdermystery.api.TMMRoles;
 import dev.doctor4t.trainmurdermystery.cca.GameWorldComponent;
+import dev.doctor4t.trainmurdermystery.cca.PlayerPoisonComponent;
 import dev.doctor4t.trainmurdermystery.client.gui.RoleAnnouncementTexts;
 import dev.doctor4t.trainmurdermystery.event.AllowPlayerDeath;
 import dev.doctor4t.trainmurdermystery.index.TMMSounds;
@@ -155,6 +156,7 @@ public class StupidExpress implements ModInitializer {
             AllergicComponent allergy = AllergicComponent.KEY.get(player);
             if (allergy.armor > 0) {
                 player.level().playSound(player, player.getOnPos().above(1), TMMSounds.ITEM_PSYCHO_ARMOUR, SoundSource.MASTER, 5.0F, 1.0F);
+                PlayerPoisonComponent.KEY.get(player).setPoisonTicks(-1, player.getUUID());
                 allergy.armor--;
                 return false;
             }
