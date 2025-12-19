@@ -6,6 +6,7 @@ import org.ladysnake.cca.api.v3.entity.EntityComponentInitializer;
 import org.ladysnake.cca.api.v3.entity.RespawnCopyStrategy;
 import org.ladysnake.cca.api.v3.world.WorldComponentFactoryRegistry;
 import org.ladysnake.cca.api.v3.world.WorldComponentInitializer;
+import pro.fazeclan.river.stupid_express.modifier.allergic.cca.AllergicComponent;
 import pro.fazeclan.river.stupid_express.cca.SEConfig;
 import pro.fazeclan.river.stupid_express.modifier.lovers.cca.LoversComponent;
 import pro.fazeclan.river.stupid_express.role.arsonist.cca.DousedPlayerComponent;
@@ -28,6 +29,9 @@ public class SEComponents implements EntityComponentInitializer, WorldComponentI
         registry.beginRegistration(Player.class, LoversComponent.KEY)
                 .respawnStrategy(RespawnCopyStrategy.NEVER_COPY)
                 .end(LoversComponent::new);
+        registry.beginRegistration(Player.class, AllergicComponent.KEY)
+                .respawnStrategy(RespawnCopyStrategy.NEVER_COPY)
+                .end(AllergicComponent::new);
     }
 
     @Override
