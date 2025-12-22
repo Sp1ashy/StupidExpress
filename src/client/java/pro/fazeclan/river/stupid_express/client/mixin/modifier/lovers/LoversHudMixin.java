@@ -74,7 +74,7 @@ public abstract class LoversHudMixin {
             at = @At("TAIL")
     )
     private static void renderLovers(Font renderer, LocalPlayer player, GuiGraphics context, DeltaTracker tickCounter, CallbackInfo ci) {
-        var loversComponent = LoversComponent.KEY.get(player);
+        var loversComponent = LoversComponent.KEY.get(Minecraft.getInstance().player);
         if (StupidExpressClient.target == null) {
             return;
         }
