@@ -34,11 +34,10 @@
   "hud.lovers.notification": "你爱上了列车上的某人！",
   "death_reason.stupid_express.broken_heart": "殉情而亡。",
 
-  "announcement.modifier.allergic": "过敏患者！",
-  "hud.allergic.hint": "过敏",
-  "hud.allergic.notification": "你的病历显示对多种与 %s 相关的物质过敏。",
-  "death_reason.stupid_express.allergies": "神秘的过敏致死。",
-  "hud.allergic.doctor_heads_up": "列车上可能有人出现过敏反应——请保持距离！",
+  "announcement.goals.stupid_express.initiate": "除掉另一名新手即可晋升为杀手！",
+  "announcement.role.stupid_express.initiate" : "新手!",
+  "death_reason.stupid_express.failed_initiation": "新手考核失败。",
 
   "commands.stupid_express.set_config_value": "%s 已成功设置为 %s！"
 }
+
