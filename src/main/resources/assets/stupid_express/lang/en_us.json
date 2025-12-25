@@ -46,6 +46,12 @@
   "stupid_express.config.rolesSection.arsonistSection": "Arsonist",
   "stupid_express.config.rolesSection.arsonistSection.arsonistKeepsGameGoing": "Arsonist Keeps The Game Going",
   "stupid_express.config.rolesSection.arsonistSection.arsonistKeepsGameGoing.desc": "If true, the Arsonist will not just count towards the neutral roles and keep the game going until they're the last standing or dead.",
+  "stupid_express.config.rolesSection.initiateSection": "Initiate",
+  "stupid_express.config.rolesSection.initiateSection.initiateFallbackRole": "Initiate Fallback Role",
+  "stupid_express.config.rolesSection.initiateSection.initiateFallbackRole.desc": "This decides what role the Initiate will fallback to if the other Initiate dies to anything but an Initiate.",
+  "stupid_express.config.initiate_fallback_options.AMNESIAC": "Amnesiac",
+  "stupid_express.config.initiate_fallback_options.KILLER": "A Killer Role",
+  "stupid_express.config.initiate_fallback_options.NEUTRAL": "Another Neutral Role",
 
   "stupid_express.config.modifiersSection": "Modifiers",
   "stupid_express.config.modifiersSection.loversSection": "Lovers",

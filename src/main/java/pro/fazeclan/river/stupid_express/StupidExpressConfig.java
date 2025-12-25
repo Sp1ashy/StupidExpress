@@ -4,6 +4,7 @@ import me.fzzyhmstrs.fzzy_config.api.FileType;
 import me.fzzyhmstrs.fzzy_config.api.SaveType;
 import me.fzzyhmstrs.fzzy_config.config.Config;
 import me.fzzyhmstrs.fzzy_config.config.ConfigSection;
+import me.fzzyhmstrs.fzzy_config.util.EnumTranslatable;
 import org.jetbrains.annotations.NotNull;
 
 public class StupidExpressConfig extends Config {
@@ -23,6 +24,23 @@ public class StupidExpressConfig extends Config {
         public ArsonistSection arsonistSection = new ArsonistSection();
         public static class ArsonistSection extends ConfigSection {
             public boolean arsonistKeepsGameGoing = false;
+        }
+
+        public InitiateSection initiateSection = new InitiateSection();
+        public static class InitiateSection extends ConfigSection {
+
+            public enum InitiateFallbackOptions implements EnumTranslatable {
+                AMNESIAC,
+                KILLER,
+                NEUTRAL;
+
+                @Override
+                public @NotNull String prefix() {
+                    return "stupid_express.config.initiate_fallback_options";
+                }
+            }
+
+            public InitiateFallbackOptions initiateFallbackRole = InitiateFallbackOptions.AMNESIAC;
         }
 
     }
