@@ -40,6 +40,7 @@
     "fabricloader": "*",
     "fabric": "*",
     "minecraft": "${minecraft_version}",
-    "harpymodloader": "*"
+    "harpymodloader": "*",
+    "fzzy_config": "*"
   }
 }
