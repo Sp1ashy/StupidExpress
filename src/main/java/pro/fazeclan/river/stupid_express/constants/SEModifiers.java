@@ -5,6 +5,7 @@ import dev.doctor4t.wathe.cca.GameWorldComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import org.agmas.harpymodloader.Harpymodloader;
+import org.agmas.harpymodloader.component.WorldModifierComponent;
 import org.agmas.harpymodloader.events.ModifierAssigned;
 import org.agmas.harpymodloader.events.ResetPlayerEvent;
 import org.agmas.harpymodloader.modifiers.HMLModifiers;
@@ -64,6 +65,9 @@ public class SEModifiers {
 
             loverComponentTwo.setLover(lover.getUUID());
             loverComponentTwo.sync();
+
+            var worldModifierComponent = WorldModifierComponent.KEY.get(level);
+            worldModifierComponent.addModifier(loverTwo.getUUID(), LOVERS); // visually show lovers on the other player
         }));
 
         ResetPlayerEvent.EVENT.register(player -> {
