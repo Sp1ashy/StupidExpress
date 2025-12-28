@@ -43,6 +43,12 @@ public class StupidExpressConfig extends Config {
             public InitiateFallbackOptions initiateFallbackRole = InitiateFallbackOptions.AMNESIAC;
         }
 
+        public AmnesiacSection amnesiacSection = new AmnesiacSection();
+        public static class AmnesiacSection extends ConfigSection {
+            public boolean bodiesGlowToAmnesiac = true;
+            public boolean amnesiacGlowsDifferently = true;
+        }
+
     }
 
     public ModifiersSection modifiersSection = new ModifiersSection();

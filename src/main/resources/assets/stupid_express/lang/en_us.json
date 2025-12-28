@@ -52,6 +52,11 @@
   "stupid_express.config.initiate_fallback_options.AMNESIAC": "Amnesiac",
   "stupid_express.config.initiate_fallback_options.KILLER": "A Killer Role",
   "stupid_express.config.initiate_fallback_options.NEUTRAL": "Another Neutral Role",
+  "stupid_express.config.rolesSection.amnesiacSection": "Amnesiac",
+  "stupid_express.config.rolesSection.amnesiacSection.bodiesGlowToAmnesiac": "Bodies Glow to the Amnesiac",
+  "stupid_express.config.rolesSection.amnesiacSection.bodiesGlowToAmnesiac.desc": "If true, bodies can glow to the Amnesiac, indicating that their role can be picked up.",
+  "stupid_express.config.rolesSection.amnesiacSection.amnesiacGlowsDifferently": "Amnesiac Glows a Different Color",
+  "stupid_express.config.rolesSection.amnesiacSection.amnesiacGlowsDifferently.desc": "If true, to those with instinct, Amnesiac glows their role color, which may help killers if one of their own has fallen.",
 
   "stupid_express.config.modifiersSection": "Modifiers",
   "stupid_express.config.modifiersSection.loversSection": "Lovers",
